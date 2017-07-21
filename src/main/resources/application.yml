@@ -8,9 +8,9 @@ spring:
       dialect: org.hibernate.dialect.MySQL5Dialect
     show-sql: true
   datasource:
-    url: jdbc:mysql://localhost:8889/control-archivo
-    username: root
-    password: 1234
+    url: jdbc:mysql://localhost:3306/control-archivo
+    username: docit
+    password: 847547@openshift
   thymeleaf:
     cache: false
     
