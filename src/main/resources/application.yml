@@ -8,9 +8,9 @@ spring:
       dialect: org.hibernate.dialect.MySQL5Dialect
     show-sql: true
   datasource:
-    url: jdbc:mysql://us-cdbr-iron-east-03.cleardb.net:3306/heroku_8c5819e3df88e54
-    username: bc215ed0f62477
-    password: e85c34d5
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAMW}
+    password: ${JDBC_DATABASE_PASSWORD}
   thymeleaf:
     cache: false
     
