@@ -1,0 +1,42 @@
+<section class="form-m" th:fragment="copy">
+	<h3 th:text="${name}"></h3>
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Cedula</th>
+				<th>Estado</th>
+				<th>Telefono</th>
+				<th>Fecha</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="archivo:${archivos}">
+				<td th:text="${archivo.id}">1</td>
+				<td th:text="${archivo.nombre}">Jose Manuel Peralta Estrella</td>
+				<td th:text="${archivo.cedula}">4343-434343-4</td>
+				<td th:text="${archivo.estado}">F</td>
+				<td th:text="${archivo.telefono}">890-432-3243</td>
+				<td th:text="${archivo.fecha}">21/32/32</td>
+
+			</tr>
+
+		</tbody>
+	</table>
+	<nav aria-label="Page navigation">
+		<ul class="pagination nav-m">
+			<li><a href="#" aria-label="Previous"> <span
+					aria-hidden="true">&laquo;</span>
+			</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#" aria-label="Next"> <span
+					aria-hidden="true">&raquo;</span>
+			</a></li>
+		</ul>
+	</nav>
+</section>
