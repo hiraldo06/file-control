@@ -2,6 +2,9 @@ package com.jaha.filecontrol.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.jaha.filecontrol.entity.Archivo;
 
 public interface ArchivoService {
@@ -12,5 +15,6 @@ public interface ArchivoService {
 	public abstract int removeFile(int id);
 	public abstract Archivo findById(int id);
 	public abstract List<Archivo> findAll();
+	public abstract Page<Archivo> findAll(Pageable pageable);
 	public abstract List<Archivo>findByNombreContainingOrCedulaContainingOrTelefonoContaining(String nombre,String cedula,String telefono);
 }
