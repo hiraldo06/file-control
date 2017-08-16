@@ -47,6 +47,8 @@ public class StartController {
 									@RequestParam("page")Optional<Integer>page,
 									@RequestParam("size")Optional<Integer>size){
 	
+		
+		
 		Page<Archivo>archivos=null;
 		/*
 		 * Evaluando el size de la pagina en caso de ser null se le agrega el valor inicial
@@ -64,8 +66,13 @@ public class StartController {
 		ModelAndView mav=new ModelAndView("index");
 		LOG.info("Method:startM ROLE:"+SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString());
 		if(!search.equals("NULL")){
-			mav.addObject("archivos", archivoService.findByNombreContainingOrCedulaContaining(search, search));
-			
+			search =search.trim().toUpperCase();
+			//mav.addObject("archivos", archivoService.findByNombreContainingOrCedulaContaining(search, search));
+			archivos=archivoService.findByNombreContainingOrCedulaContainingOrTelefonoContaining(search,
+																								search, 
+																								search,
+														 new PageRequest(constantGeneric.PAGINA_INCIAL,
+																 		 constantGeneric.SIZE_PAGINA_INCIAL));
 		}else{
 			/*
 			 * creando el Objeto Page que sera devuelto y llenado por el metodo findAll(Pageable)
@@ -79,7 +86,7 @@ public class StartController {
 		
 			mav.addObject("paginaSelecionada",ePageSize);
 			mav.addObject("pageView","/");
-			mav.addObject("usuario",constantGeneric.confirmRole("ROLE_ADMIN"));
+			
 			mav.addObject("menuActive",constantGeneric.changeValuerMenu("index", true));
 		LOG.info("METHOD: startMethod()");
 		return mav;

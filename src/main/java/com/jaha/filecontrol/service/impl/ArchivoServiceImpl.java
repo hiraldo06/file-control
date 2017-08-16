@@ -32,13 +32,13 @@ public class ArchivoServiceImpl implements ArchivoService{
 
 	@Override
 	public Archivo saveFile(Archivo archivo) {
-		
+		archivo.setNombre(archivo.getNombre().toUpperCase());
 		return archivoRepository.save(archivo);
 	}
 
 	@Override
 	public Archivo updateFile(Archivo archivo) {
-		
+		archivo.setNombre(archivo.getNombre().toUpperCase());
 		return archivoRepository.save(archivo);
 	}
 
@@ -66,10 +66,10 @@ public class ArchivoServiceImpl implements ArchivoService{
 	}
 
 	@Override
-	public List<Archivo> findByNombreContainingOrCedulaContainingOrTelefonoContaining(String nombre, String cedula,
-			String telefono) {
+	public Page<Archivo> findByNombreContainingOrCedulaContainingOrTelefonoContaining(String nombre, String cedula,
+			String telefono,Pageable pageable) {
 		
-		return archivoRepository.findByNombreContainingOrCedulaContainingOrTelefonoContaining(nombre, cedula, telefono);
+		return archivoRepository.findByNombreContainingOrCedulaContainingOrTelefonoContaining(nombre, cedula, telefono,pageable);
 	}
 
 	@Override

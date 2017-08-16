@@ -16,5 +16,5 @@ public interface ArchivoService {
 	public abstract Archivo findById(int id);
 	public abstract List<Archivo> findAll();
 	public abstract Page<Archivo> findAll(Pageable pageable);
-	public abstract List<Archivo>findByNombreContainingOrCedulaContainingOrTelefonoContaining(String nombre,String cedula,String telefono);
+	public abstract Page<Archivo>findByNombreContainingOrCedulaContainingOrTelefonoContaining(String nombre,String cedula,String telefono,Pageable pageable);
 }
