@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="users")
@@ -30,8 +31,7 @@ public class User {
 	private String fullName;
 	
 	@Column(name="cedula")
-	@Max(11)
-	@Min(11)
+	@Size(max=11,min=11)
 	private String cedula;
 	
 	@Column(name="exequatur")
