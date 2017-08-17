@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Entity
 @Table(name="users")
@@ -23,6 +25,23 @@ public class User {
 	
 	@Column(name="enable",nullable=false)
 	private boolean enable;
+	
+	@Column(name="full_name")
+	private String fullName;
+	
+	@Column(name="cedula")
+	@Max(11)
+	@Min(11)
+	private String cedula;
+	
+	@Column(name="exequatur")
+	private String exequatur;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="telefono")
+	private String telefono;
 	
 	@OneToMany(fetch=FetchType.EAGER,mappedBy="user")
 	private Set<UserRole>userRole=new HashSet<UserRole>();
